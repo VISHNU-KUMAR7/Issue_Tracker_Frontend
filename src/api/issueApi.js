@@ -1,10 +1,11 @@
 import axios from "axios";
+import url from "./link";
 class issueApi {
   static getAllIssue(data) {
     return new Promise(async (resolve, reject) => {
       try {
         const response = await axios.post(
-          "http://localhost:3001/issues/getIssueByUser",
+          `${url}/issues/getIssueByUser`,
           data
         );
         resolve(response);
@@ -18,7 +19,7 @@ class issueApi {
     return new Promise(async (resolve, reject) => {
       try {
         const response = await axios.post(
-          "http://localhost:3001/issues/addIssue",
+          `${url}/issues/addIssue`,
           data
         );
         resolve(response);
@@ -31,7 +32,7 @@ class issueApi {
     return new Promise(async (resolve, reject) => {
       try {
         const response = await axios.put(
-          "http://localhost:3001/issues/updateIssue",
+          `${url}/issues/updateIssue`,
           data
         );
         resolve(response);
@@ -45,7 +46,7 @@ class issueApi {
       try {
         console.log("Api called in try", data);
         const response = await axios.put(
-          "http://localhost:3001/issues/deleteIssue",
+          `${url}/issues/deleteIssue`,
           data
         );
         resolve(response);
@@ -61,7 +62,7 @@ class issueApi {
       try {
         // eMail, searchItem, skip, limit
         const response = await axios.post(
-          "http://localhost:3001/issues/getIssuesBySearch",
+          `${url}/issues/getIssuesBySearch`,
           { ...data }
         );
         resolve(response);

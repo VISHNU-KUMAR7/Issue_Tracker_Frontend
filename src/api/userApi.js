@@ -1,4 +1,5 @@
 import axios from "axios";
+import url from "./link";
 
 class userApi {
   static getAllUser(data) {
@@ -6,10 +7,7 @@ class userApi {
 
     return new Promise(async (resolve, reject) => {
       try {
-        const response = await axios.post(
-          "http://localhost:3001/users/loginUser",
-          data
-        );
+        const response = await axios.post(`${url}/users/loginUser`, data);
         resolve(response.data);
       } catch (e) {
         reject(e);
@@ -21,7 +19,7 @@ class userApi {
     return new Promise(async (resolve, reject) => {
       try {
         const response = await axios.post(
-          "http://localhost:3001/users/totalIssueByUser",
+          `${url}/users/totalIssueByUser`,
           data
         );
         resolve(response);
@@ -34,10 +32,7 @@ class userApi {
   static newUser(data) {
     return new Promise(async (resolve, reject) => {
       try {
-        const response = await axios.post(
-          "http://localhost:3001/users/registerUser",
-          data
-        );
+        const response = await axios.post(`${url}/users/registerUser`, data);
         resolve(response.data);
       } catch (e) {
         reject(e);
@@ -48,10 +43,7 @@ class userApi {
   static profileUser(data) {
     return new Promise(async (resolve, reject) => {
       try {
-        const response = await axios.post(
-          "http://localhost:3001/users/profileUser",
-          data
-        );
+        const response = await axios.post(`${url}/users/profileUser`, data);
         resolve(response.data);
       } catch (e) {
         reject(e);
