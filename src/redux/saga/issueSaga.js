@@ -5,17 +5,18 @@ function* getIssueData({ values }) {
   const result = yield issueApi.getAllIssue(values).then((data) => data);
   yield put({ type: "GET_ISSUE_DATA", ...result });
 }
+
 function* addIssueData({ values }) {
   const result = yield issueApi.addIssue(values).then((data) => data);
-
   yield put({ type: "ADD_ISSUE_DATA", ...result });
 }
+
 function* editIssueData({ values }) {
   const result = yield issueApi.editIssue(values).then((data) => data);
   yield put({ type: "EDIT_ISSUE_DATA", ...result });
 }
+
 function* delIssueData({ values }) {
-  console.log("saga is called", values);
   const result = yield issueApi.delIssue(values).then((data) => data);
   yield put({ type: "DEL_ISSUE_DATA", ...result });
 }
